@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirement Planning Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background:url('finalret.jpg')no-repeat;
+            background-size: cover;
+            background-position:top;
+        }
+
+        form {
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border:2px rgba(0, 0, 0, 0.4);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight:500;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            border-radius:15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border-radius: 15px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <form id="retirementForm">
+
+        <label for="currentAge">Current Age:</label>
+        <input type="number" id="currentAge" required>
+
+        <label for="retirementAge">Retirement Age:</label>
+        <input type="number" id="retirementAge" required>
+
+        <label for="monthlySavings">Monthly Savings:</label>
+        <input type="number" id="monthlySavings" required>
+
+        <label for="annualReturn">Annual Return on Investment (%):</label>
+        <input type="number" id="annualReturn" required>
+
+        <button type="button" onclick="calculateRetirement()">Calculate</button>
+
+        <div id="result"></div>
+    </form>
+
+    <script>
+        function calculateRetirement() {
+            var currentAge = parseInt(document.getElementById('currentAge').value);
+            var retirementAge = parseInt(document.getElementById('retirementAge').value);
+            var monthlySavings = parseFloat(document.getElementById('monthlySavings').value);
+            var annualReturn = parseFloat(document.getElementById('annualReturn').value);
+
+            var yearsToRetirement = retirementAge - currentAge;
+            var totalSavings = monthlySavings * 12 * yearsToRetirement;
+
+            for (var i = 0; i < yearsToRetirement; i++) {
+                totalSavings = totalSavings * (1 + annualReturn / 100);
+            }
+
+            var resultElement = document.getElementById('result');
+            resultElement.textContent = 'Total Savings at Retirement: $' + totalSavings.toFixed(2);
+        }
+    </script>
+</body>
+</html>
+
+
+
