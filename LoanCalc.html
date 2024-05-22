@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial, sans-serif';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: grey;
+            color: orange;
+            background: url('background5.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .calculator-container {
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: transparent;
+            backdrop-filter: blur(20px);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            color:white;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: black;
+            border-radius: 15px;
+            background-color:white;
+            padding-left:4px;
+        }
+    </style>
+    <title>Loan Interest Calculator</title>
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>Loan Interest Calculator</h1>
+        <form id="loanForm">
+            <label for="loanAmount">Loan Amount (INR):</label>
+            <input type="number" id="loanAmount" required>
+
+            <label for="interestRate">Annual Interest Rate (%):</label>
+            <input type="number" id="interestRate" required>
+
+            <label for="loanTerm">Loan Term (years):</label>
+            <input type="number" id="loanTerm" required>
+
+            <button type="button" onclick="calculateInterest()">Calculate</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateInterest() {
+            // Get input values
+            const loanAmount = parseFloat(document.getElementById("loanAmount").value);
+            const interestRate = parseFloat(document.getElementById("interestRate").value) / 100;
+            const loanTerm = parseFloat(document.getElementById("loanTerm").value);
+
+            // Calculate compound interest
+            const compoundInterest = loanAmount * Math.pow(1 + interestRate, loanTerm) - loanAmount;
+
+            // Display the result
+            document.getElementById("result").innerHTML = "Total Interest: " + compoundInterest.toFixed(2);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Banking And Investment</title>
+    <style>
+   .navbar{
+    background-color:rgb(20, 13, 13);
+    border-radius:15px;
+    position:relative;
+    top:0%;
+    left:0%;
+    right:0%;
+    padding-top: 1%;
+   }
+   
+   .navbar ul{
+    overflow:auto;
+    padding:15px 8px ;
+    
+
+   }
+   .navbar li{
+    float: left;
+    list-style:none;
+   }
+   .navbar li a{
+    text-decoration:none;
+    color:white;
+    margin-right:10px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight:bold;
+   
+   }
+   .search{
+   float:right;
+   color:white;
+   
+   }
+   .navbar input{
+    border:3px solid black;
+    border-radius:14px;
+    padding:3px 17px;
+   }
+   #logo {
+    font-size: 1.2em;
+    color:#e85d04;
+}
+.navbar li a:hover{
+    color:red;
+}
+#srch{
+    background-color:orange;
+    padding:5px 5px;
+    border-radius:5px;
+}
+.img{
+    margin-top:0;
+    padding-top:0;
+}
+.slide-container{
+    position:relative;
+    width:100%;
+    margin-left:0px;
+}
+.slide img{
+    width:100%;
+}
+.arrow{
+    cursor:pointer;
+    position:absolute;
+    top:35.5%;
+    background-color: rgba(255,255,255,0.712);
+    color:black;
+    padding:8px 19px;
+    border-radius:50%;
+    font-size: 25px;
+    font-weight:bold;
+}
+.next{
+    right:10px;
+}
+.prev{
+    left:10px;
+}
+.caption{
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+    position:absolute;
+    bottom:0px;
+    text-align:center;
+    width:100%;
+    background-color:rgba(0,0,0,0.5);
+    padding:15px;
+    font-family:'Times New Roman', Times, serif;
+}
+.slide{
+    display:none;
+}
+.button{
+    background-color: white;
+    padding:10px 25px;
+    font-weight:bolder;
+    border-radius:15px;
+    text-decoration: none;
+    font-family:'Arial Narrow', Arial, sans-serif;
+    font-size: x-large;
+    cursor:pointer;
+}
+#red{
+    color:red;
+    display:inline;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+.butn{
+    background-color:rgb(1, 105, 1) ;
+    color:white;
+    padding:10px;
+    border-radius:10px;
+    font-weight:bold;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    cursor:pointer;
+}
+#slide2{
+    color:rgb(86, 86, 218);
+    top:50%;
+}
+
+
+        .circular-box {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            text-align:center;
+        }
+
+        .circular-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    line-height: 1.2;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color:rgba(255, 255, 255,1);
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+    background-color:black;
+    padding: 60px 10%;
+    height:300px;
+    width:100%;
+    
+}
+
+ul {
+    list-style: none;
+}
+
+.footer-col {
+    width: 25%;
+}
+
+.footer-col h4 {
+    position: relative;
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 22px;
+    color: #fdc307;
+    text-transform: capitalize;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    background-color: #27c0ac;
+    height: 2px;
+    width: 40px;
+}
+
+ul li:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+ul li a {
+    display: block;
+    font-size: 19px;
+    text-transform: capitalize;
+    color: #bdb6b6;
+    text-decoration: none;
+    transition: 0.4s;
+
+}
+
+ul li a:hover {
+    color: white;
+    padding-left: 2px;
+}
+
+.links a {
+    display: inline-block;
+    height: 44px;
+    width: 44px;
+    color: white;
+    background-color: rgba(40, 130, 214, 0.8);
+    margin: 0 8px 8px 0;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.links a:hover {
+    color: #4d4f55;
+    background-color: white;
+}
+
+@media (max-width: 740px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .footer-col h4::before {
+        all: unset;
+    }
+}
+
+@media (max-width: 555px) {
+    .footer-col {
+        width: 100%;
+    }
+}
+ul{
+    color:white;
+}
+.slide2{
+    bottom:60%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    font-size:x-large;
+    color:cadetblue;
+}
+body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+  
+
+    .circle1{
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      margin: 10px;
+      background:url('Suraj.jpg')no-repeat;
+            background-size: cover;
+            background-position: top;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+            align-items: center;
+            margin-right: 70px;
+            margin-left: 30px;
+    }
+    .circle2{
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      margin: 10px;
+      background:url('vaibhav.jpg')no-repeat;
+            background-size: cover;
+            background-position: top;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+            margin-right: 70px;
+            margin-left: 30px;
+    }
+
+    .circle3 {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      margin: 10px;
+      background:url('Shivam.jpg')no-repeat;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+            margin-right: 70px;
+            margin-left:30px;
+            text-align:center;
+    }
+    .team-container {
+            display: flex;
+            flex-direction: row; 
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .container1, .container2, .container3 {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            flex-grow: 1;
+
+        }
+#name{
+    padding-top: 0%;
+    margin-top:0%;
+    padding-bottom: 0%;
+    margin-bottom:0%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight:600;
+    text-align:center;
+}
+#details{
+    padding-top: 0%;
+    margin-top:0%;
+    padding-bottom: 0%;
+    margin-bottom:0%;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight:400;
+    color:black;
+    text-align:center;
+    cursor:pointer;
+}
+#details:hover{
+    color:white;
+    background-color: white;
+}
+
+i{
+    margin-right: 5px;
+    align-items: center;
+}
+#team{
+    margin-left:0px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.disclaimer{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background-color:rgb(128, 80, 80);
+    color:white;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius:10px;
+
+}
+.box-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5%;
+        }
+
+        .square-box {
+            width: 250px;
+            height: 250px;
+            background-color:rgb(96, 137, 138);
+            margin-right: 80px;
+            margin-left: 80px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding-top:5px;
+        border-radius: 8px;
+        cursor:pointer;
+        }
+        .reward{
+            display: flex;
+            padding-top:0;
+            margin-top:0;
+            font-weight: 600;
+            font-size: x-large;
+        }
+.img-container {
+    display: flex;
+}
+
+.imgcrdit, .imgcredit {
+    margin: 0;
+    padding: 0; 
+}
+
+.imgcredit {
+    margin-left: 10px; 
+}
+.disclaimer{
+    margin-bottom: 7%;
+    margin-top:5%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    background-color: aliceblue;
+    color:rgb(46, 46, 178);
+    font-family:'Courier New', Courier, monospace;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+        <ul>
+            <li><a id="logo"href="#">Bank Of Bharat.in</a></li>
+            <li><a href="Accounts.html">Account</a></li>
+            <li><a href="Payments.html">Payments</a></li>
+            <li><a href="Investment.html">Investments</a></li>
+            <li><a href="currencyConverter.html">CurrencyConverter</a></li>
+            <li><a href="Calculator.html">Calculators</a></li>
+            
+            <div class="search">
+            <input placeholder="Search">
+                <button id="srch">search</button>
+            </div>
+        </ul>
+    </nav>
+    </header>
+    <div class="slide-container">
+        <div class="slide">
+            <img class="img" src="slider8.jpg"alt"" height="450px" width="100%">
+            <div class="caption">Welcome To Bank of Bharat&#128591</div>
+        </div>
+
+        <div class="slide">
+            <img class="img" src="slider6.jpg"alt"" height="450px" width="100%">
+            <div class="caption"><button class="button"<a href="navBar.html">Check it out!!</a></button></div>
+        </div>
+
+        <div class="slide">
+            <img class="img" src="digitalrupee.jpg"alt"" height="450px" width="100%">
+            <div class="caption">Contactless Digital Payment Platform</div>
+        </div>
+
+        <div class="slide">
+            <img class="img" src="slider5.jpg"alt"" height="450px" width="100%">
+            <div class="caption">Loans up to <p id="red">40 Lakhs</p> at low interest rate<button class="butn">Check Eligibility</button></div>
+        </div>
+
+        <div class="slide">
+            <img class="img" src="rbiSBI.jpg"alt"" height="450px" width="100%">
+            <div class="caption">Full tranperancy to customers</div>
+        </div>
+
+        <span class="arrow prev" onclick="controller(-1)">&#10094;</span>
+        <span class="arrow next" onclick="controller(1)">&#10095;</span>
+    </div>
+   
+    <img class="img" src="slider9.jpg"alt"" height="450px" width="100%">
+    <img class="img" src="slider7.jpg"alt"" height="450px" width="100%"><br>
+
+    <div class="img-container">
+        <img class="imgcrdit" src="3d.jpg" alt="" height="300px" width="60%">
+        <img class="imgcredit" src="credit.jpg" alt="" height="300px" width="60%">
+    </div>
+
+    <p class="slide2">Credit Card</p>
+    <p class="slide2">Experience a rewarding journey with Bank of Bharat Creditcard.</p>
+    <p class="slide2">Apply online and get a FREE Amazon voucher</p>
+    
+    <div class="box-container">
+        <div class="square-box">
+           <p class="reward">Rewardz</p>
+            <img class="img" src="rewardz.png" alt="" height="150px">
+        </div>
+                <div class="square-box">
+            <p class="reward">Offers</p>
+            <img class="img" src="offer.png" alt="" height="150px">
+        </div>
+    </div><br><br>
+
+        <h1 id="team">Made By:</h1>
+        <div class="team-container">
+            <div class="container container1">
+                <div class="circle1"></div>
+                <h2 id="name">Suraj Shukla</h2>
+                <p class="details">
+                    <a href="https://www.linkedin.com/in/suraj-shukla-b241a8229?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/surajshukla_7/#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.hackerrank.com/profile/shuklasuraj1191"><i class="fa-brands fa-hackerrank"></i></a>
+                    <a href="https://github.com/surajshukla0069"><i class="fa-brands fa-github"></i></a>
+                    <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+                </p>
+            </div><br>
+    
+
+    <div class="disclaimer">
+        <h2>Disclaimer</h2>
+        <p>Bank of Bharat will never ask you to reveal your User ID or password.Therfore,never disclose your credentials(User ID,Password,OTP,PIN etc.) to anyone either through mail or over phone.If you receive any mail asking you to update or authenticate your User ID or Password,please do not fall into the trap of putting in your Password or OTP or PIN<br></p>
+    </div><br>
+        <footer>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#">Teams</a></li>
+                    <li><a href="#">Advertising</a></li>
+                    <li><a href="#">Talent</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Network</h4>
+                <ul>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Science</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Professional</a></li>
+                    <li><a href="#">API</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Legal</a></li>
+                    <li><a href="ContactUs.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+
+    <script>
+    
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide) => (slide.style.display = 'none'));
+            slides[index].style.display = 'block';
+        }
+
+        function showNextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        function showPrevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        function autoSlide() {
+            showNextSlide();
+        }
+        showSlide(currentIndex);
+
+        setInterval(autoSlide, 5000); 
+
+        document.querySelector('.next').addEventListener('click', showNextSlide);
+        document.querySelector('.prev').addEventListener('click', showPrevSlide);
+
+</script>
+    
+</body>
+</html>

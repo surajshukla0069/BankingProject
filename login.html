@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+       
+       body {
+            margin: 0;
+            padding: 0;
+            background-image: url('pexels-krivec-ales-547114.jpg');
+            background-size: cover;
+            background-position:center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-wrapper {
+            width: 420px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(9px);
+            color: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px;
+        }
+
+        .login-wrapper h1 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-wrapper .input-box {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .login-wrapper input {
+            width: calc(100% - 40px);
+            height: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            font-size: 16px;
+            color: #fff;
+            padding: 20px;
+            padding-right: 40px;
+            box-sizing: border-box;
+        }
+
+        .login-wrapper input::placeholder {
+            color: #fff;
+        }
+
+        .login-wrapper i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+        }
+
+        .login-wrapper .eye-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .login-wrapper .eye-icon:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .login-wrapper .btn {
+            width: 100%;
+            height: 45px;
+            background: #fff;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .login-wrapper .register-link {
+            font-size: 14.5px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .register-link p a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .register-link p a:hover {
+            text-decoration: underline;
+        }
+        .btn:hover{
+            background-color: black;
+            color:white;
+        }
+        .register:hover{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-wrapper">
+        <form id="loginForm" onsubmit="login(event)">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" id="username" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+                <i class="eye-icon bx bxs-show" onclick="togglePasswordVisibility()"></i>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="register-link">
+                <p>Don't have an account? <a class="register" href="#" onclick="register()">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function login(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (username === 'Suraj' && password === 'Shukla') {
+               alert('Password Matched,Login?')
+               window.location.href = 'navBar.html';
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        }
+
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById('password');
+            var eyeIcon = document.querySelector('.eye-icon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('bxs-show');
+                eyeIcon.classList.add('bxs-hide');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('bxs-hide');
+                eyeIcon.classList.add('bxs-show');
+            }
+        }
+
+        function register() {
+            alert('Register button clicked! Implement registration logic here.');
+        }
+    </script>
+
+</body>
+</html>

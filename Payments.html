@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:#21B6A8;
+    background:url('pexels-scott-webb-403571.jpg')no-repeat;
+            background-size: cover;
+            background-position: center;
+}
+
+header {
+    background-color:black;
+    color:orange;
+    padding: 0.4rem;
+    text-align: center;
+    border-radius:15px;
+
+}
+
+main {
+    padding: 2rem;
+    color:black;
+    text-align:center;
+    
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input, button {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    padding-bottom:0.5rem;
+}
+
+footer {
+    background-color: #34495e;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top:100px;
+
+}
+
+    </style>
+    <title>Banking Website</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Bank of Bharat</h1>
+    </header>
+    <main>
+        <section id="balance-section">
+            <h2>Your Balance: <span id="balance">1000</span></h2>
+        </section>
+        <section id="transaction-section">
+            <h2>Make a Transaction</h2>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" placeholder="Enter amount"><br>
+            <button onclick="deposit()">Deposit</button>
+            <button onclick="withdraw()">Withdraw</button>
+        </section>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2024 Bank of Bharat. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let balance = 25000;
+
+function updateBalance() {
+    document.getElementById("balance").innerText = balance.toFixed(2);
+}
+
+function deposit() {
+    const amount = parseFloat(document.getElementById("amount").value);
+    if (!isNaN(amount) && amount > 0) {
+        balance += amount;
+        updateBalance();
+    } else {
+        alert("Please enter a valid amount");
+    }
+}
+
+function withdraw() {
+    const amount = parseFloat(document.getElementById("amount").value);
+    if (!isNaN(amount) && amount > 0 && balance >= amount) {
+        balance -= amount;
+        updateBalance();
+    } else {
+        alert("Insufficient funds or invalid amount");
+    }
+}
+
+updateBalance();
+
+    </script>
+    
+</body>
+</html>
